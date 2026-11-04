@@ -161,4 +161,63 @@
 ![Создание ветки отчёта](screenshots/13-report-branch.png)
 
 
+## Лог выполненных команд
+
+```bash
+git config --global user.name "4516 Фарсиев Р.И."
+git config --global user.email "spagettiboi123@gmail.com"
+git config --global --list
+
+mkdir -p ~/GitLabs
+cd ~/GitLabs
+git clone https://github.com/spagettiboi123-cell/LR6.git
+cd LR6
+git remote -v
+git branch -a
+
+git pull origin master
+ls
+git log --oneline -3
+
+git log master --oneline
+git log origin/branch1 --oneline
+git log --all --oneline --graph --decorate
+
+git show HEAD
+git show origin/branch1
+git diff master origin/branch1
+
+git status
+git merge origin/branch1
+git status
+git add mergefile.txt
+git commit -m "Слияние branch1 в master, разрешение конфликта"
+
+git branch -a
+git push origin --delete branch1
+git branch -a
+git log --oneline --graph --all
+
+git add test.txt
+git commit -m "Первое изменение тестового файла"
+git add test.txt
+git commit -m "Второе изменение тестового файла"
+git add test.txt
+git commit -m "Третье изменение тестового файла"
+
+git log --oneline -5
+git status
+git revert --no-edit HEAD
+git log --oneline -6
+git status
+
+git switch -c report
+git branch
+git status
+
+git add README.md screenshots/
+git commit -m "Начало оформления отчёта по лабораторной работе"
+git add README.md screenshots/
+git commit -m "Добавлены скриншоты выполнения лабораторной работы"
+git status
 
